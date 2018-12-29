@@ -1,0 +1,109 @@
+<div class="page-layout simple fullwidth angular-material-elements">
+
+    <!-- HEADER -->
+    <div class="header accent p-24 h-160" fxLayout="column" fxLayoutAlign="center center" fxLayout.gt-xs="row"
+         fxLayoutAlign.gt-xs="space-between center">
+
+        <div fxLayout="column" fxLayoutAlign="center center" fxLayout.gt-xs="column" fxLayoutAlign.gt-xs="center start">
+            <div fxLayout="row" fxLayoutAlign="start center">
+                <mat-icon class="secondary-text s-18">home</mat-icon>
+                <mat-icon class="secondary-text s-16">chevron_right</mat-icon>
+                <span class="secondary-text">{{ 'SETTINGS.TITTLE' | translate }}</span>
+                <!-- <mat-icon class="secondary-text s-16">chevron_right</mat-icon>
+                 <span class="secondary-text">Angular Material Elements</span>-->
+            </div>
+            <div class="h2 mt-16">{{ 'SETTINGS.ACCOUNT' | translate }}</div>
+        </div>
+    </div>
+    <!-- / HEADER -->
+    <!-- CONTENT -->
+    <div class="content-card">
+        <div class="content">
+            <mat-tab-group (selectedTabChange)="onTabChanges($event)">
+                <mat-tab label="account">
+                    <ng-template mat-tab-label>{{ 'GLOBAL.DETAIL' | translate }}</ng-template>
+                    <div class="tab-content p-24" fusePerfectScrollbar>
+                        <div class="mat-elevation-z8">
+                            <div class="mb-24" fxLayout="column" fxLayoutAlign="start" fxLayout.gt-md="row">
+                                <div class="p-24 mr-24" fxLayout="column" fxLayoutAlign="start" fxLayoutGap="20px">
+                                    <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="20px">
+                                        <mat-form-field>
+                                            <input [(ngModel)]="aAccount['information']['full_name']" matInput
+                                                   type="text"
+                                                   placeholder="{{ 'USER.FULLNAME' | translate }}">
+                                        </mat-form-field>
+                                        <mat-form-field>
+                                            <input [(ngModel)]="aAccount['information']['phone']" matInput
+                                                   type="text"
+                                                   placeholder="{{ 'USER.PHONE' | translate }}">
+                                        </mat-form-field>
+                                    </div>
+                                    <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="20px">
+                                        <mat-form-field>
+                                            <input [(ngModel)]="aAccount['information']['address']" matInput
+                                                   type="text"
+                                                   placeholder="{{ 'USER.ADDRESS' | translate }}">
+                                        </mat-form-field>
+                                    </div>
+
+                                    <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="20px">
+                                        <button [disabled]="bDisableEdit" (click)="onSubmitAccount();"
+                                                mat-raised-button
+                                                matStepperNext type="button" color="accent">
+                                            {{ 'TOOLBAR.SUBMIT' | translate }}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="change_password">
+                    <ng-template mat-tab-label>{{ 'USER.CHANGE_PASS' | translate }}</ng-template>
+                    <div class="tab-content p-24" fusePerfectScrollbar>
+                        <div class="mat-elevation-z8">
+                            <div class="mb-24" fxLayout="column" fxLayoutAlign="start" fxLayout.gt-md="row">
+                                <div class="p-24 mr-24" fxLayout="column" fxLayoutAlign="start" fxLayoutGap="20px">
+                                    <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="20px">
+                                        <mat-form-field>
+                                            <input [(ngModel)]="aChangePassword['old_pass']" matInput required
+                                                   type="password"
+                                                   placeholder="{{ 'USER.OLD_PASS' | translate }}">
+                                        </mat-form-field>
+
+                                    </div>
+                                    <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="20px">
+                                        <mat-form-field>
+                                            <input [(ngModel)]="aChangePassword['new_pass']" matInput required
+                                                   type="password"
+                                                   placeholder="{{ 'USER.NEW_PASS' | translate }}">
+                                        </mat-form-field>
+                                    </div>
+
+                                    <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="20px">
+                                        <mat-form-field>
+                                            <input [(ngModel)]="aChangePassword['re_pass']" matInput required
+                                                   type="password"
+                                                   placeholder="{{ 'USER.RE_PASS' | translate }}">
+                                        </mat-form-field>
+                                    </div>
+
+                                    <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="20px">
+                                        <button [disabled]="bDisableEdit" (click)="onSubmitPassword();"
+                                                mat-raised-button
+                                                matStepperNext type="button" color="accent">
+                                            {{ 'TOOLBAR.SUBMIT' | translate }}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+</div>
+
+
+
